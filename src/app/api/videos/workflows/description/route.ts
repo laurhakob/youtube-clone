@@ -1,4 +1,3 @@
-
 import { db } from "@/db";
 import { videos } from "@/db/schema";
 import { serve } from "@upstash/workflow/nextjs";
@@ -55,7 +54,7 @@ export const { POST } = serve(async (context) => {
   });
 
   // Call Gemini AI to generate a title
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
 
   let description = video.description; // Default to existing title if API call fails
   let status = "success"; // Track request status
