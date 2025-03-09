@@ -37,7 +37,6 @@ export const studioRouter = createTRPCRouter({
     )
     .query(async ({ ctx, input }) => {
       const { cursor, limit } = input;
-
       const { id: userId } = ctx.user;
 
       const data = await db
