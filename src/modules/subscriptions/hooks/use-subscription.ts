@@ -18,9 +18,9 @@ export const useSubscription = ({
 
   const subscribe = trpc.subscriptions.create.useMutation({
     onSuccess: () => {
-      toast.success("isSubscribed");
+      toast.success("Subscribed");
 
-      // TODO: reinvalidate subscription.getMany
+      utils.subscriptions.getMany.invalidate();
       utils.videos.getManySubscribed.invalidate();
       utils.users.getOne.invalidate({ id: userId });
 
@@ -40,9 +40,9 @@ export const useSubscription = ({
 
   const unsubscribe = trpc.subscriptions.remove.useMutation({
     onSuccess: () => {
-      toast.success("isSubscribed");
+      toast.success("Unsubscribed");
 
-      // TODO: reinvalidate subscription.getMany
+      utils.subscriptions.getMany.invalidate();
       utils.videos.getManySubscribed.invalidate();
       utils.users.getOne.invalidate({ id: userId });
 
